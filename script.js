@@ -57,9 +57,3 @@ volumeBtn.addEventListener("click", function () {
         song.muted ? "Unmute song" : "Mute song"
     );
 });
-
-window.addEventListener("DOMContentLoaded", function () {
-    song.play().catch(function (error) {
-        console.log("Autoplay blocked by browser:", error);
-    });
-});
