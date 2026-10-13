@@ -1,0 +1,198 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family:'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    color: #f4f4f4;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('imgs/background.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.profile {
+    align-items: center;
+}
+
+.profile-pic {
+    align-self: center;
+    justify-self: center;
+    width: 125px;
+    height: 125px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.bitcount-ink {
+    text-align: center;
+    font-family: "Bitcount", monospace;
+    color: white;
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    padding: 5px 0;
+    margin-bottom: 20px;
+}
+
+.icon {
+    display: block;
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+    animation: purple-glow 2s ease-in-out infinite alternate;
+    transition: transform 0.25s ease;
+}
+
+.socials a:hover .icon {
+    transform: translateY(-2px) scale(1.1);
+}
+
+@keyframes purple-glow {
+    from {
+        filter: drop-shadow(0 0 3px #c187ff);
+    }
+
+    to {
+        filter: drop-shadow(0 0 10px #c187ff);
+    }
+}
+
+.music {
+    padding: 15px;
+    background: rgba(95, 70, 135, 0.82);
+    border: 1px solid rgba(193, 135, 255, 0.25);
+    border-radius: 14px;
+}
+
+.heart-gif {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.music h2 {
+    font-size: 0.85rem;
+    margin: 0 0 5px;
+}
+
+.music p {
+    color: #bba8d6;
+    font-size: 0.7rem;
+    margin: 0;
+}
+
+.music-player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 14px;
+    background: #3d2653;
+    border-radius: 16px;
+    box-shadow: 0 0 15px rgba(193, 135, 255, 0.2);
+    color: #ead5ff;
+    font-family: "Courier New", monospace;
+    font-size: 11px;
+}
+
+.music-heading {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.play-btn,
+.volume-btn {
+    border: none;
+    color: white;
+    background: #9563c4;
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: 0.2s ease;
+    text-align: center;
+}
+
+.play-btn:hover,
+.volume-btn:hover {
+    background: #c187ff;
+    box-shadow: 0 0 10px #c187ff;
+    transform: scale(1.08);
+}
+
+.progress {
+    flex: 1;
+    min-width: 0;
+    height: 5px;
+    border-radius: 10px;
+    accent-color: #c187ff;
+    cursor: pointer;
+}
+
+#current-time,
+#duration {
+    white-space: nowrap;
+}
+
+.footer {
+    color: #bba8d6;
+    font-size: 0.7rem;
+    text-align: center;
+    opacity: 0.8;
+}
+
+/*small screens*/
+
+@media (max-width: 400px) {
+    body {
+        padding: 28px 18px;
+    }
+
+    main {
+        gap: 17px;
+    }
+
+    .profile-pic {
+        width: 110px;
+        height: 110px;
+    }
+
+    .socials {
+        gap: 25px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .icon {
+        animation: none;
+    }
+
+    .socials a:hover .icon {
+        transform: none;
+    }
+}

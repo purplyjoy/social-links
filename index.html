@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rei</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitcount:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Ink:wght@100..900&family=Jersey+25&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main>
+
+        <section class="profile">
+            <img src="imgs/kuromi.jpg" alt="Kuromi" class="profile-pic">
+            <h1 class="bitcount-ink">rei</h1>
+        </section>
+
+        <div class="socials">
+            <a href="https://www.roblox.com/users/7128011153/profile" target="_blank"><img src="imgs/roblox.png" alt="Roblox" class="icon"></a>
+            <a href="https://open.spotify.com/user/315dlk5f3fshdniqnwnny3bcfrxy?si=60cfc4b105584fc3" target="_blank"><img src="imgs/spotify.png" alt="Spotify" class="icon"></a>
+            <a href="https://www.tiktok.com/@lilajoyce?_r=1&_t=ZS-9AWEtAY289q" target="_blank"><img src="imgs/tiktok.png" alt="Tiktok" class="icon"></a>
+            <a href="https://www.instagram.com/purplum_?psln=MW5rbXJxbGJ4ZGN2" target="_blank"><img src=" imgs/instagram.png" alt="Instagram" class="icon"></a>  
+        </div>
+
+        <section class="music-player">
+            <div class="music-heading">
+                <img src="imgs/heart.gif" alt="Hearr GIF" class="heart-gif">
+                <p>Panaginip - nicole</p>
+            </div>
+
+            <div class="music">
+                <audio id="song">
+                    <source src="music/Panaginip - nicole.mp3" type="audio/mpeg">
+                </audio>
+    
+                <button id="play-btn" class="play-btn" aria-label="Play song">▶</button>
+    
+                <span id="current-time">0:00</span>
+    
+                <input
+                    type="range"
+                    id="progress"
+                    class="progress"
+                    value="0"
+                    min="0"
+                    max="100"
+                    aria-label="Song progress"
+                >
+    
+                <span id="duration">0:00</span>
+    
+                <button id="volume-btn" class="volume-btn" aria-label="Mute or unmute">♫</button>
+            </div>           
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
