@@ -64,6 +64,16 @@ main {
     justify-content: center;
 }
 
+.activity-label {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    color: #cbb5e8;
+    margin-bottom: 5px;
+}
+
 .dc-profile {
     display: flex;
     flex-direction: column;
@@ -99,6 +109,9 @@ main {
 }
 
 .activity-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     flex: 1;
     min-width: 0;
     font-family: 'Inter', sans-serif;
@@ -117,14 +130,17 @@ main {
     display: inline-block;
     width: 7px;
     height: 7px;
-    background: #808080;
     transition: background-color 0.3s ease;
     border-radius: 50%;
 }
 
+.loading {
+    font-size: 13px;
+}
+
 #game-activity {   
     display: flex;
-    align-items: center;
+    flex-direction: column;
     margin: 0;
     line-height: 1.4;
     font-family: 'Inter', sans-serif;
@@ -134,9 +150,25 @@ main {
 
 #spotify-activity {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     gap: 10px;
     margin-top: 16px;
+}
+
+.activity-label {
+    font-size: 10px;
+    color: #b6a7c6;
+}
+
+.game-name {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.spotify-content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 #spotify-activity img {

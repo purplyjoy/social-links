@@ -100,11 +100,24 @@ async function updateActivity() {
         );
 
         if (game) {
-            gameElement.textContent = "   🎮    " + game.name;
+            const label = document.createElement("span");
+            label.classList.add("activity-label");
+            label.textContent = "Playing";
+
+            const gameName = document.createElement("span");
+            gameName.classList.add("game-name");
+            gameName.textContent = "   🎮    " + game.name;
+
+            gameElement.innerHTML = "";
+            gameElement.append(label, gameName);
         }
 
         if (data.listening_to_spotify && data.spotify) {
             const song = data.spotify;
+
+            const label = document.createElement("span");
+            label.classList.add("activity-label");
+            label.textContent = "Listening to Spotify";
 
             const artwork = document.createElement("img");
             artwork.src = song.album_art_url;
@@ -121,8 +134,14 @@ async function updateActivity() {
             artist.style.fontWeight = "bold";
 
             songInfo.append(songTitle, artist);
-            spotifyElement.append(artwork, songInfo);
-        } else {
+
+            const spotifyContent = document.createElement("div");
+            spotifyContent.classList.add("spotify-content");
+            spotifyContent.append(artwork, songInfo);
+
+            spotifyElement.innerHTML = "";
+            spotifyElement.append(label, spotifyContent);
+        } else {    
             spotifyElement.textContent = "";
         }
 
