@@ -58,10 +58,10 @@ volumeBtn.addEventListener("click", function () {
     );
 });
 
-
 const userId = "931599631702446132";
 
 async function updateActivity() {
+
     try {
         const response = await fetch(
             `https://api.lanyard.rest/v1/users/${userId}`
@@ -75,8 +75,19 @@ async function updateActivity() {
 
         const data = result.data;
 
-        document.getElementById("discord-status").textContent =
-            data.discord_status;
+        document.getElementById("discord-name").textContent =
+        data.discord_user.username;
+
+        const statusText = document.getElementById("discord-status");
+        const statusDot = document.querySelector(".status-dot");
+
+        statusText.textContent = data.discord_status;
+
+        if (data.discord_status === "online") {
+            statusDot.style.backgroundColor = "#a8e6b0";
+        } else {
+            statusDot.style.backgroundColor = "#808080";
+        }
 
         const gameElement = document.getElementById("game-activity");
         const spotifyElement = document.getElementById("spotify-activity");
@@ -112,7 +123,7 @@ async function updateActivity() {
             songInfo.append(songTitle, artist);
             spotifyElement.append(artwork, songInfo);
         } else {
-            spotifyElement.textContent = "Not listening to Spotify";
+            spotifyElement.textContent = "";
         }
 
         if (!game) {
