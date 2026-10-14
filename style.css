@@ -3,7 +3,7 @@
 }
 
 body {
-    font-family:'Courier New', Courier, monospace;
+    font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
     color: #f4f4f4;
@@ -25,11 +25,13 @@ main {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
 }
 
+/* profile and name */
 .profile {
     align-items: center;
+    margin-top: 80px;
 }
 
 .profile-pic {
@@ -44,16 +46,119 @@ main {
 .bitcount-ink {
     text-align: center;
     font-family: "Bitcount", monospace;
-    color: white;
+    color: #ffffff;
+    margin-bottom: 13px;
 }
 
+/* discord activity status */
+.activity {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 15px;
+    background: rgba(85, 61, 123, 0.82);
+    border: 1px solid rgba(157, 95, 223, 0.35);
+    border-radius: 14px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    align-items: center;
+    justify-content: center;
+}
+
+.dc-profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.dc-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    margin: 0;
+}
+
+.profile-pic-small {
+    width: 62px;
+    height: 62px;
+    border-radius: 12px;
+    object-fit: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.activity .status-text {
+    display: flex;
+    align-items: center;
+    color: #d5c3e9;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 12px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.activity-info {
+    flex: 1;
+    min-width: 0;
+    font-family: 'Inter', sans-serif;
+    margin: 10px;
+}   
+
+.activity p {
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 400;
+    margin: 0 0 5px;
+}
+
+.status-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    background: #a8e6b0;
+    border-radius: 50%;
+}
+
+#game-activity {   
+    display: flex;
+    align-items: center;
+    margin: 0;
+    line-height: 1.4;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+#spotify-activity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+#spotify-activity img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+#spotify-activity p {
+    margin: 3px 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+}
+
+/* social links */
 .socials {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 16px;
     padding: 5px 0;
-    margin-bottom: 20px;
+    margin: 16px;
 }
 
 .icon {
@@ -79,11 +184,18 @@ main {
     }
 }
 
+/* music player */
 .music {
     padding: 15px;
     background: rgba(95, 70, 135, 0.82);
     border: 1px solid rgba(193, 135, 255, 0.25);
     border-radius: 14px;
+}
+
+.music-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .heart-gif {
@@ -116,12 +228,6 @@ main {
     color: #ead5ff;
     font-family: "Courier New", monospace;
     font-size: 11px;
-}
-
-.music-heading {
-    display: flex;
-    align-items: center;
-    gap: 20px;
 }
 
 .play-btn,

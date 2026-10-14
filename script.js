@@ -57,3 +57,75 @@ volumeBtn.addEventListener("click", function () {
         song.muted ? "Unmute song" : "Mute song"
     );
 });
+
+
+const userId = "931599631702446132";
+
+async function updateActivity() {
+    try {
+        const response = await fetch(
+            `https://api.lanyard.rest/v1/users/${userId}`
+        );
+
+        const result = await response.json();
+
+        if (!result.success) {
+            throw new Error("Unable to get Discord activity.");
+        }
+
+        const data = result.data;
+
+        document.getElementById("discord-status").textContent =
+            data.discord_status;
+
+        const gameElement = document.getElementById("game-activity");
+        const spotifyElement = document.getElementById("spotify-activity");
+
+        gameElement.innerHTML = "";
+        spotifyElement.innerHTML = "";
+
+        const game = data.activities.find(
+            activity => activity.type === 0
+        );
+
+        if (game) {
+            gameElement.textContent = "   🎮    " + game.name;
+        }
+
+        if (data.listening_to_spotify && data.spotify) {
+            const song = data.spotify;
+
+            const artwork = document.createElement("img");
+            artwork.src = song.album_art_url;
+            artwork.alt = "Album artwork";
+            artwork.width = 50;
+
+            const songInfo = document.createElement("div");
+
+            const songTitle = document.createElement("p");
+            songTitle.textContent = song.song;
+
+            const artist = document.createElement("p");
+            artist.textContent = song.artist;
+            artist.style.fontWeight = "bold";
+
+            songInfo.append(songTitle, artist);
+            spotifyElement.append(artwork, songInfo);
+        } else {
+            spotifyElement.textContent = "Not listening to Spotify";
+        }
+
+        if (!game) {
+            gameElement.textContent = "No game detected";
+        }
+
+    } catch (error) {
+        console.error("Discord activity error:", error);
+
+        document.getElementById("discord-status").textContent =
+            "Status unavailable";
+    }
+}
+
+updateActivity();
+setInterval(updateActivity, 15000);
